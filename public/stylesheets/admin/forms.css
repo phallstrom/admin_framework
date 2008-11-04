@@ -1,0 +1,93 @@
+form {
+}
+
+form div.field {
+  clear: both;
+  padding-top: 10px;
+}
+
+form div.field label {
+  display: inline-block;
+  white-space: nowrap;
+  vertical-align: top;
+  width: 200px;
+  border-bottom: 1px dashed #ddd;
+}
+
+form div.field div.help{
+  padding-top: 2px;
+  font-size: 0.8em;
+  color: #666;
+}
+
+form div.field.required label:after {
+  content: "*";
+}
+
+form div.field label.plain {
+  display: inline;
+  width: auto;
+  border-bottom: none;
+  vertical-align: baseline;
+}
+
+form div.field label.plain:after {
+  content: '';
+}
+
+form div.field div.fieldWithErrors {
+  display: inline-block;
+  padding-bottom: 2px;
+}
+
+form div.field div.error {
+  color: #f30;
+  font-size: 0.9em;
+}
+
+form div.field input.file,
+form input.text,
+form select,
+form div.field textarea {
+  display: inline-block;
+  border: 1px solid #666;
+  background: #eee;
+}
+
+
+form div.form_buttons {
+  clear: both;
+  float: right;
+}
+
+form div.form_buttons input.cancel,
+form input.submit,
+form div.form_buttons input.submit {
+  display: inline-block;
+  float: left;
+  background: #999;
+  color: #fff;
+  padding: 1px 3px;
+  margin-left: 3px;
+  border: 1px solid #333;
+  font-size: 11px;
+}
+
+form input.submit,
+form div.form_buttons input.submit {
+  background: #666;
+}
+
+form div.form_buttons input.cancel:hover,
+form input.submit,
+form div.form_buttons input.submit:hover {
+  text-decoration: none;
+}
+
+form div.form_buttons input.cancel:active,
+form input.submit,
+form div.form_buttons input.submit:active {
+  text-decoration: none;
+  background: #333;
+}
+

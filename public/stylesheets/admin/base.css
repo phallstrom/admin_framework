@@ -1,0 +1,233 @@
+body {
+  color: #333;
+  background: #ccc;
+  font-family: Helvetica,Arial,sans-serif;
+  font-size: 14px;
+}
+
+a, a:link, a:visited, a:hover, a:active {
+  color: #666;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+ul {
+  list-style-position: inside;
+  list-style-type: disc;
+  margin: 0.5em 1em;
+}
+
+ol {
+  list-style-position: inside;
+  list-style-type: decimal;
+  margin: 0.5em 1em;
+}
+
+ul li,
+ol li {
+  margin: 0.15em;
+}
+
+
+ul li ul li,
+ol li ol li {
+  margin-left: 1em;
+}
+
+/**********************************************************************/
+
+#page {
+  background: #fff;
+  width: 90%;
+  margin: 1em auto;
+  border: 1px solid #999;
+}
+
+/**********************************************************************/
+
+#page #header {
+  padding: 10px 10px 0;
+  border-bottom: 1px solid #999;
+}
+
+#page #header h1 {
+  font-size: 1.3em;
+  float: left;
+}
+
+#page #header .links {
+  float: right;
+}
+
+/**********************************************************************/
+
+#page #content {
+  padding: 10px;
+  clear:both;
+}
+
+#page #content h2 {
+  font-size: 1.3em;
+  float: left;
+}
+
+#page #content #flashes div {
+  clear: both;
+  margin: 2px;
+  padding: 5px 1em 3px;
+  color: #000;
+}
+
+#page #content #flashes div.error {
+  background: #f30;
+  color: #fff;
+}
+
+#page #content #flashes div.warning {
+  background: #f90;
+}
+
+#page #content #flashes div.info,
+#page #content #flashes div.notice {
+  background: #3c6;
+}
+
+#page #content .actions {
+  float: right;
+  margin-bottom: 3px;
+}
+
+#page #content .actions form input.submit,
+#page #content .actions a {
+  display: block;
+  float: left;
+  background: #666;
+  color: #fff;
+  padding: 1px 3px;
+  margin-left: 3px;
+  border: 1px solid #333;
+  font-size: 11px;
+}
+
+#page #content .actions form input.submit {
+  display: inline-block;
+  padding: 0px 0px;
+}
+
+#page #content .actions a:hover {
+  text-decoration: none;
+}
+
+#page #content .actions form input.submit:active,
+#page #content .actions a:active {
+  text-decoration: none;
+  background: #333;
+}
+
+#page #content .actions form input.submit,
+#page #content .actions form input.button {
+  float: none;
+}
+
+#page #content div.instructions {
+  font-size: 90%;
+  padding-bottom: 0.5em;
+  margin-bottom: 1em;
+  border-bottom: 1px solid #999;
+}
+
+
+/**********************************************************************/
+
+#page #content div.pagination {
+  text-align: right;
+  margin-top: 1em;
+}
+
+/**********************************************************************/
+
+table.data {
+  clear: both;
+  width: 100%;
+  border: 1px solid #999;
+  border-collapse: collapse;
+  font-size: 12px;
+}
+
+table.data thead tr th {
+  background-color: #999;
+  border: 1px solid #666;
+  white-space: nowrap;
+  padding: 3px;
+  font-weight: bold;
+}
+
+table.data.sortable thead tr th {
+  cursor: pointer;
+}
+
+table.data.sortable thead tr th.sorttable_nosort {
+  cursor: default;
+}
+
+table.data tr td {
+  padding: 3px;
+  border: 1px solid #999;
+}
+
+table.data tbody tr.even {
+  background: #eee;
+}
+
+table.data tbody tr.odd {
+  background: #fff;
+}
+
+table.data tbody tr:hover {
+  background: #ddd;
+}
+
+table.data tr th.left,
+table.data tr td.left {
+  text-align: left;
+}
+
+table.data tr th.center,
+table.data tr td.center {
+  text-align: center;
+}
+
+table.data tr th.right,
+table.data tr td.right {
+  text-align: right;
+}
+
+table.data tbody tr td.bold {
+  font-weight: bold;
+}
+
+table.data tr td.rowactions {
+  white-space: nowrap;
+}
+
+/**********************************************************************/
+
+#dashboardlinks a {
+  display: block;
+  float: left;
+  padding: 3px 10px;
+  margin: 5px;
+  border: 1px solid #999;
+  background: #ccc;
+  width: 150px;
+  color: #333;
+  text-align: center;
+}
+
+#dashboardlinks a:hover {
+  background: #aaa;
+  text-decoration: none;
+}
