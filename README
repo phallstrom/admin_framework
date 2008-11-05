@@ -1,13 +1,18 @@
 AdminFramework
 ==============
 
-Introduction goes here.
+Yet another Rails plugin to provide some consistency in building "admin areas".
 
 
-Example
+Requirements
 =======
 
-Example goes here.
+The following plugins are required so go get them and install them:
+
+http://agilewebdevelopment.com/plugins/clear_helper
+http://agilewebdevelopment.com/plugins/form_helper_css
+http://agilewebdevelopment.com/plugins/will_paginate
+
 
 
 Copyright (c) 2008 Philip Hallstrom, released under the MIT license
