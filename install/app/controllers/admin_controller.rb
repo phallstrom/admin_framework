@@ -16,7 +16,7 @@ class AdminController < ApplicationController
   private :authenticate
 
   def check_permission
-    if !@the_admin_user.is_superman? && @the_admin_user.permissions[self.class::PERMISSION].nil?
+    if !@the_admin_user.is_superuser? && @the_admin_user.permissions[self.class::PERMISSION].nil?
       flash[:error] = "You do not have access to '#{self.class::PERMISSION}'."
       redirect_to admin_path
     end

@@ -9,7 +9,7 @@
       <th>Login</th>
       <th>Name</th>
       <th>Email</th>
-      <th class='center'>Is Superman?</th>
+      <th class='center'>Is Superuser?</th>
       <th class='center'>Is Enabled?</th>
       <th></th>
     </tr>
@@ -20,8 +20,8 @@
         <td><%=h admin_user.login %></td>
         <td><%=h admin_user.name %></td>
         <td><%=h admin_user.email %></td>
-        <td class='center'><%= yesno(admin_user.is_superman) %></td>
-        <td class='center'><%= yesno(admin_user.is_enabled) %></td>
+        <td class='center'><%= admin_user.is_superuser? ? 'Yes' : 'No' %></td>
+        <td class='center'><%= admin_user.is_enabled? ? 'Yes' : 'No' %></td>
         <td class='right'>
           <%= link_to 'Edit', edit_admin_admin_user_path(admin_user) %>
           |

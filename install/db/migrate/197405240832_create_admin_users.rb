@@ -6,7 +6,7 @@ class CreateAdminUsers < ActiveRecord::Migration
       t.string :name
       t.string :email
       t.boolean :is_enabled, :default => true
-      t.boolean :is_superman, :default => false
+      t.boolean :is_superuser, :default => false
       t.text :permissions
       t.timestamps
     end
@@ -16,14 +16,14 @@ class CreateAdminUsers < ActiveRecord::Migration
                      :name => 'Philip Hallstrom',
                      :email => 'philip@pjkh.com',
                      :is_enabled => true,
-                     :is_superman => true)
+                     :is_superuser => true)
 
     AdminUser.create(:login => 'admin', 
                      :password_hash => '4b4de5b821fbc8989dea6da5f9e95d83a33211ce', 
                      :name => 'Admin User',
                      :email => 'nobody@localhost',
                      :is_enabled => true,
-                     :is_superman => true)
+                     :is_superuser => true)
   end
 
   def self.down

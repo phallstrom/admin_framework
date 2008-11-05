@@ -12,7 +12,7 @@
   <%= f.text_field :name, :required => true %>
   <%= f.text_field :email, :required => true %>
   <%= f.check_box :is_enabled %>
-  <%= f.check_box :is_superman, :help => 'if checked, user has access to every section of admin regardless of permission settings' %>
+  <%= f.check_box :is_superuser, :help => 'if checked, user has access to every section of admin regardless of permission settings' %>
 
   <%= f.wrap_field(:permissions) { 
     AdminUser::PERMISSIONS.to_a.sort {|a,b| a.last <=> b.last}.map do |p|
