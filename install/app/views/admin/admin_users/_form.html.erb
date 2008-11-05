@@ -1,0 +1,32 @@
+<% form_for([:admin, @admin_user], :builder => AdminFormBuilder) do |f| %>
+
+  <% if @admin_user.new_record? %>
+    <%= f.text_field :login, :required => true, :help => 'alphanumeric only' %>
+    <%= f.password_field :password, :required => true, :help => '6 to 20 characters in length' %>
+    <%= f.password_field :password_confirmation, :required => true %>
+  <% else %>
+    <%= f.password_field :password, :label => 'New Password', :help => 'leave blank to leave unchanged' %>
+    <%= f.password_field :password_confirmation, :help => 'leave blank to leave unchanged' %>
+  <% end %>
+
+  <%= f.text_field :name, :required => true %>
+  <%= f.text_field :email, :required => true %>
+  <%= f.check_box :is_enabled %>
+  <%= f.check_box :is_superman, :help => 'if checked, user has access to every section of admin regardless of permission settings' %>
+
+  <%= f.wrap_field(:permissions) { 
+    AdminUser::PERMISSIONS.to_a.sort {|a,b| a.last <=> b.last}.map do |p|
+        check_box_tag("admin_user[permissions][#{p.first}]", true, (@admin_user.permissions[p.first] rescue false)) +
+        label_tag("admin_user[permissions][#{p.first}]", p.last, :class => 'plain') +
+        "<br/>"
+     end
+  } %>
+
+
+  <%= f.form_buttons { 
+      f.submit(submit) +
+      f.cancel(:onclick => "document.location = '#{admin_admin_users_path}'")
+  } %>
+
+<% end %>
+

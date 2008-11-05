@@ -1,0 +1,33 @@
+<% @page_title = 'Admin Users' %>
+<div class='actions'>
+  <%= link_to 'New Admin User', new_admin_admin_user_path %>
+</div>
+
+<table class='data'>
+  <thead>
+    <tr>
+      <th>Login</th>
+      <th>Name</th>
+      <th>Email</th>
+      <th class='center'>Is Superman?</th>
+      <th class='center'>Is Enabled?</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% for admin_user in @admin_users %>
+      <tr>
+        <td><%=h admin_user.login %></td>
+        <td><%=h admin_user.name %></td>
+        <td><%=h admin_user.email %></td>
+        <td class='center'><%= yesno(admin_user.is_superman) %></td>
+        <td class='center'><%= yesno(admin_user.is_enabled) %></td>
+        <td class='right'>
+          <%= link_to 'Edit', edit_admin_admin_user_path(admin_user) %>
+          |
+          <%= link_to 'Destroy', admin_admin_user_path(admin_user), :confirm => 'Are you sure?', :method => :delete %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

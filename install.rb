@@ -1,17 +1,21 @@
 require 'fileutils'
+require 'pathname'
 
-rails_root = File.join(File.dirname(__FILE__), '..', '..', '..')
+rails_root = Pathname.new(File.join(File.dirname(__FILE__), '..', '..', '..')).realpath
 
-Dir['public/**/*'].each do |pathname|
-  if File.directory?(pathname)
-    FileUtils.mkdir_p File.join(rails_root, pathname)
-  else
-    destination = File.join(rails_root, pathname)
-    if File.exist?(destination)
-      puts "Warning: File '#{pathname}' exists. Might want to check that out."
+FileUtils.chdir(File.join(File.dirname(__FILE__), 'install')) do
+  Dir['**/*'].each do |pathname|
+    if File.directory?(pathname)
+      puts "Making Directory #{pathname}"
+      FileUtils.mkdir_p File.join(rails_root, pathname)
     else
-      puts "Installing #{pathname}"
-      FileUtils.cp pathname, destination
+      destination = File.join(rails_root, pathname)
+      if File.exist?(destination)
+        puts "Warning: File '#{pathname}' exists. Might want to check that out."
+      else
+        puts "Installing #{pathname}"
+        FileUtils.cp pathname, destination
+      end
     end
   end
 end

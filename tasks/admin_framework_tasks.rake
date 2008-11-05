@@ -2,9 +2,9 @@ require 'fileutils'
 
 namespace :admin_framework do
   
-  desc "Update Javascript/CSS for admin_framework plugin."
+  desc "Update images/javascript/stylesheets for admin_framework plugin."
   task :update do
-    FileUtils.chdir(File.join(File.dirname(__FILE__), '..')) do
+    FileUtils.chdir(File.join(File.dirname(__FILE__), '..', 'install')) do
       Dir['public/**/*'].each do |pathname|
         if File.directory?(pathname)
           FileUtils.mkdir_p File.join(RAILS_ROOT, pathname)

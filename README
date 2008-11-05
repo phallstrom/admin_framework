@@ -2,10 +2,11 @@ AdminFramework
 ==============
 
 Yet another Rails plugin to provide some consistency in building "admin areas".
+Read on for requirements, installation instructions, and how to remove.
 
 
 Requirements
-=======
+============
 
 The following plugins are required so go get them and install them:
 
@@ -14,6 +15,51 @@ http://agilewebdevelopment.com/plugins/clear_helper
 http://agilewebdevelopment.com/plugins/form_helper_css
 http://agilewebdevelopment.com/plugins/will_paginate
 
+Installation Steps
+==================
+
+If your installation didn't already run the install.rb, do that now:
+
+  ruby vendor/plugins/admin_framework/install.rb
+
+Then run the migration:
+
+  rake db:migrate VERSION=197405240832_create_admin_users
+
+Then install the following routes:
+
+  map.with_options :controller => 'admin/dashboard' do |r|
+    r.admin '/admin'
+    r.admin_login '/admin/login', :action => 'login'
+    r.admin_logout '/admin/logout', :action => 'logout'
+  end
+
+  map.namespace(:admin) do |admin|
+    admin.resources :admin_users
+    # add your other admin routes here
+  end
+  
+
+Uninstall Steps
+===============
+
+Remove the admin_users table by downing the migration:
+
+  rake db:migrate:down VERSION=197405240832_create_admin_users
+
+Remove all the files:
+
+  ruby vendor/plugins/admin_framework/uninstall.rb
+
+There may still be some cleanup if you've made local modifications.
+
+Rake Tasks
+==========
+
+There is one rake task that you can run to copy into place new images,
+javascripts, and stylesheets.
+
+  rake admin_framework:update
 
 
-Copyright (c) 2008 Philip Hallstrom, released under the MIT license
+Copyright (c) 2008 Philip Hallstrom <philip@pjkh.com>, released under the MIT license
