@@ -5,7 +5,7 @@
     <%= f.password_field :password, :required => true %>
     <%= f.form_buttons { 
         f.submit('login') +
-        f.cancel(:onclick => "document.location = '#{root_path}'")
+        f.cancel(:onclick => "document.location = '/'")
     } %>
 <% end %>
 
