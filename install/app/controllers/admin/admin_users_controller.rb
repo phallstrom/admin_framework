@@ -63,6 +63,8 @@ class Admin::AdminUsersController < AdminController
   def update
     @admin_user = AdminUser.find(params[:id])
 
+    params[:admin_user][:permissions] = {} if params[:admin_user][:permissions].nil?
+
     respond_to do |format|
       if @admin_user.update_attributes(params[:admin_user])
         flash[:notice] = "Admin User '#{@admin_user.login}' was successfully updated."
