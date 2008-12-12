@@ -30,6 +30,11 @@ class AdminFormBuilder < ActionView::Helpers::FormBuilder
     wrapped_field(method, original_options, super)
   end
 
+  def date_select(method, options = {}, html_options = {})
+    original_options, options = prepare_options('date_select', options)
+    wrapped_field(method, original_options, super)
+  end
+
   def datetime_select(method, options = {}, html_options = {})
     original_options, options = prepare_options('datetime_select', options)
     wrapped_field(method, original_options, super)
