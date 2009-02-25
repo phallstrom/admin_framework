@@ -24,7 +24,7 @@ If your installation didn't already run the install.rb, do that now:
 
 Then run the migration:
 
-  rake db:migrate VERSION=197405240832_create_admin_users
+  rake db:migrate:up VERSION=197405240832_create_admin_users
 
 This will create the table and two users:
 
