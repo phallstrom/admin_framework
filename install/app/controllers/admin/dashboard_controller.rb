@@ -1,6 +1,7 @@
 class Admin::DashboardController < AdminController
 
   def index
+    flash.now[:warning] ||= []
   end
 
   def login
@@ -27,4 +28,24 @@ class Admin::DashboardController < AdminController
     session[:admin_user_id] = nil
     session[:admin_user_token] = nil
   end
+
+  def change_password
+    @admin_user = @the_admin_user
+    if request.post?
+      @admin_user.errors.add(:current_password, 'can not be blank') if params[:admin_user][:current_password].blank?
+      @admin_user.errors.add(:current_password, 'does not match password on record') if AdminUser.hash_a_password(params[:admin_user][:current_password]) != @admin_user.password_hash
+
+      if @admin_user.errors.empty?
+        if @admin_user.update_attributes(params[:admin_user])
+          flash[:info] = "Your password has been changed."
+          redirect_to admin_path
+          return
+        end
+
+        @admin_user.current_password = @admin_user.password = @admin_user.password_confirmation = ''
+      end
+
+    end
+  end
+
 end

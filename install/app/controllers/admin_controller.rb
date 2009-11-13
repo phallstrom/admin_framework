@@ -1,7 +1,6 @@
 class AdminController < ApplicationController
   layout 'admin'
 
-  before_filter :set_mailer_options
   before_filter :authenticate, :except => [:login, :logout]
 
   def authenticate
@@ -24,10 +23,16 @@ class AdminController < ApplicationController
   end
   private :check_permission
 
-  def set_mailer_options
-    ActionMailer::Base.default_url_options[:host] = request.host_with_port
-    true
-  end
-  private :set_mailer_options
 
 end # of class AdminController
+
+def check_permission(permission = nil)
+  permission = self.class::PERMISSION if permission.nil?
+  if !@the_admin_user.has_access_to?(permission)
+    flash[:error] = "You do not have access to '#{permission.inspect}'."
+    redirect_to admin_path
+    return false
+  end
+  return true
+end
+private :check_permission

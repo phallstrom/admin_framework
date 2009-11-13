@@ -45,15 +45,62 @@ form div.field div.error {
   font-size: 0.9em;
 }
 
+form.jeditable input[type='text'],
+form.jeditable textarea,
 form div.field input.file,
-form input.text,
-form select,
+form div.field input.text,
+form div.field select,
 form div.field textarea {
   display: inline-block;
   border: 1px solid #666;
   background: #eee;
 }
 
+form div.field table,
+form div.field input.text,
+form div.field textarea {
+  width: 600px;
+}
+
+form div.field input.text.short {
+  width: 100px;
+}
+
+/********************************************************************************/
+ 
+form div.field textarea.markitup {
+  width: 100%;
+  height: 600px;
+}
+
+div.markItUpContainer div.markItUpHeader ul li {
+  border-top: 1px solid #666;
+  background: #eee;
+}
+
+div.markItUpContainer div.markItUpHeader ul li a {
+  margin-top: 5px;
+}
+
+div.markItUpContainer div.markItUpHeader ul li.markItUpButton1 {
+  border-left: 1px solid #666;
+}
+
+div.markItUpContainer div.markItUpHeader ul li.markItUpButton1 {
+  padding-left: 5px;
+  border-left: 1px solid #666;
+}
+
+div.markItUpContainer div.markItUpHeader ul li.markItUpButton12 {
+  border-right: 1px solid #666;
+}
+
+/********************************************************************************/
+
+form.jeditable input[type='text'],
+form.jeditable textarea {
+  background: #c2defb;
+}
 
 form div.form_buttons {
   clear: both;
@@ -91,3 +138,16 @@ form div.form_buttons input.submit:active {
   background: #333;
 }
 
+form fieldset {
+  border: 1px solid #999;
+  padding: 0 0 10px 10px;
+  margin: 0 0 1em 0;
+}
+
+form fieldset legend {
+  font-weight: bold;
+}
+
+form fieldset label {
+  font-size: 90%;
+}

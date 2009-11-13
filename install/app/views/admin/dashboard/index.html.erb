@@ -2,7 +2,15 @@
 
 <div id='dashboardlinks'>
 
-  <%= link_to 'Admin Users', admin_admin_users_path %>
+  <%= link_to('Admin Users', admin_admin_users_path) if @the_admin_user.has_access_to?(:admin_users)  %>
+  <%= link_to('Categories', admin_categories_path) if @the_admin_user.has_access_to?(:categories)  %>
+  <%= link_to('Developers', admin_developers_path) if @the_admin_user.has_access_to?(:developers)  %>
+  <%= link_to('Games', admin_games_path) if @the_admin_user.has_access_to?(:games) %>
+  <%= link_to('Page Contents', admin_page_contents_path) if @the_admin_user.has_access_to?(:page_contents)  %>
+  <%= link_to('Tiers', admin_tiers_path) if @the_admin_user.has_access_to?(:tiers)  %>
+  <%= link_to('Tweets', admin_tweets_path) if @the_admin_user.has_access_to?(:tweets)  %>
+  <%= link_to('Vendor Files', admin_vendor_files_path) if @the_admin_user.has_access_to?(:vendor_files)  %>
+  <%= link_to('Clear Cache', admin_clear_cache_path) %>
 
 </div>
 

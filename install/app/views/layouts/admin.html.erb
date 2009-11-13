@@ -2,10 +2,15 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
-    <title>Admin</title>
+    <title><%= ['Admin', @page_title].join(' - ') %></title>
     <%= javascript_include_tag :defaults %>
-    <%= stylesheet_link_tag 'admin/reset', 'admin/base', 'admin/forms'  %>
     <%= javascript_include_tag 'admin/base' %>
+    <%= stylesheet_link_tag 'admin/reset', 'admin/base', 'admin/forms'  %>
+
+    <% javascript_tag do %>
+      if ( $.browser.safari == true ) { document.writeln('<%= stylesheet_link_tag 'admin/safari'%>') }
+    <% end %>
+
     <style type='text/css'>
       <%= yield :inline_styles %>
     </style>
@@ -16,16 +21,24 @@
     <div id='page'>
 
       <div id='header'>
-        <h1>Admin - <%= @page_title %></h1>
-
         <div class='links'>
           <%= image_tag 'admin/spinner.gif', :id => 'spinner', :style => 'display: none' %>
-          <%= link_out_to 'Visit Site', '/' %>
+          <%= link_out_to 'Visit Site', root_url(:protocol => 'http') %>
           |
           <%= link_to 'Dashboard', admin_path %>
+          <% if @the_admin_user %>
+            |
+            <%= link_to 'Change Password', admin_change_password_path %>
+          <% end %>
           |
           <%= link_to 'Log Out', admin_logout_path %>
         </div>
+
+        <h1>
+          <%= content_tag :span, "#{RAILS_ENV.upcase} - ", :style => 'font-weight: bold; color: #f60' if RAILS_ENV != 'production' %>
+          <%= request.host.capitalize %> - Admin - <%= @page_title %>
+        </h1>
+
 
         <br clear="all"/>
       </div>
@@ -34,7 +47,9 @@
 
         <div id='flashes'>
           <% flash.each_pair do |k,v| %>
-            <div class='<%= k -%>'><%= v %></div>
+            <% v.to_a.each do |s| %>
+              <div class='<%= k -%>'><%= s %></div>
+            <% end %>
           <% end %>
         </div>
 

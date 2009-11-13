@@ -37,6 +37,16 @@ ol li ol li {
   margin-left: 1em;
 }
 
+.faded {
+  color: #666;
+}
+.small {
+  font-size: 90%;
+}
+.large {
+  font-size: 110%;
+}
+
 /**********************************************************************/
 
 #page {
@@ -60,6 +70,7 @@ ol li ol li {
 
 #page #header .links {
   float: right;
+  font-size: 90%;
 }
 
 /**********************************************************************/
@@ -115,6 +126,7 @@ ol li ol li {
 #page #content .actions form input.submit {
   display: inline-block;
   padding: 0px 0px;
+  margin: 0px 6px 0 0;
 }
 
 #page #content .actions a:hover {
@@ -137,6 +149,12 @@ ol li ol li {
   padding-bottom: 0.5em;
   margin-bottom: 1em;
   border-bottom: 1px solid #999;
+}
+
+#page #content hr {
+  margin: 1em 0;
+  border: none;
+  border-top: 1px solid #999;
 }
 
 
@@ -173,9 +191,15 @@ table.data.sortable thead tr th.sorttable_nosort {
   cursor: default;
 }
 
+
 table.data tr td {
   padding: 3px;
   border: 1px solid #999;
+}
+
+table.data tr td.divider {
+  padding: 1px;
+  background: #999;
 }
 
 table.data tbody tr.even {
@@ -187,7 +211,7 @@ table.data tbody tr.odd {
 }
 
 table.data tbody tr:hover {
-  background: #ddd;
+  background: #dde;
 }
 
 table.data tr th.left,

@@ -1,13 +1,13 @@
 require 'digest/sha1'
 
 class AdminUser < ActiveRecord::Base
-  attr_accessor :password, :password_confirmation
+  attr_accessor :current_password, :password, :password_confirmation
   serialize :permissions
 
   validates_presence_of :login
   validates_uniqueness_of :login
-  validates_length_of :login, :within => 2..12
-  validates_format_of :login, :with => /\A[A-Za-z0-9]*\Z/i
+  validates_length_of :login, :within => 2..30
+  validates_format_of :login, :with => /\A[_.A-Za-z0-9]*\Z/i
 
   validates_presence_of     :password,                   :if => :password_required?
   validates_presence_of     :password_confirmation,      :if => :password_required?, :on => :create
@@ -20,7 +20,7 @@ class AdminUser < ActiveRecord::Base
   SECRET_SALT = 'sam-and-tom' unless const_defined? "SECRET_SALT"
 
   PERMISSIONS = {
-    :admin_users => 'Admin Users'
+    :admin_users => 'Admin Users',
   } unless const_defined? "PERMISSIONS"
 
   #
@@ -52,8 +52,23 @@ class AdminUser < ActiveRecord::Base
   #
   #
   def password_required?
-    password_hash.blank? || !password.blank? || !password_confirmation.blank?
+    password_hash.blank? || !current_password.blank? || !password.blank? || !password_confirmation.blank?
   end
   private :password_required?
+
+  #
+  #
+  #
+  def has_access_to?(*p)
+    return true if is_superuser?
+    return has_permission?(p)
+  end
+
+  #
+  #
+  #
+  def has_permission?(*p)
+    !(permissions.select{|k,v| v == 'true'}.map{|e| e.first} & [p].flatten.map(&:to_s)).empty?
+  end
 
 end
