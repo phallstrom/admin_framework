@@ -26,10 +26,6 @@
           <%= link_out_to 'Visit Site', root_url(:protocol => 'http') %>
           |
           <%= link_to 'Dashboard', admin_path %>
-          <% if @the_admin_user %>
-            |
-            <%= link_to 'Change Password', admin_change_password_path %>
-          <% end %>
           |
           <%= link_to 'Log Out', admin_logout_path %>
         </div>
