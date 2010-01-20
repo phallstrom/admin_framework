@@ -2,6 +2,9 @@ class AdminFormBuilder < ActionView::Helpers::FormBuilder
 
   def file_field(method, options = {})
     original_options, options = prepare_options('file', options)
+    if defined?(Paperclip::Attachment) && object.send(method).is_a?(Paperclip::Attachment)
+      original_options[:errors_on] ||= ["#{method}_file_name", "#{method}_file_size", "#{method}_content_type"]
+    end
     wrapped_field(method, original_options, super)
   end
 
@@ -84,7 +87,7 @@ class AdminFormBuilder < ActionView::Helpers::FormBuilder
       <div style="display: inline-block">
         #{field}
         #{"<div class='help'>#{options[:help]}</div>" if options[:help]}
-        #{object.errors.on(method).map {|e| "<div class='error'>#{e.capitalize}.</div>"} rescue nil}
+        #{ [method, options[:errors_on]].flatten.compact.to_a.map{|m| object.errors.on(m).to_a.map {|e| "<div class='error'>#{e.capitalize}.</div>" } }}
       </div>
     </div>
     }
