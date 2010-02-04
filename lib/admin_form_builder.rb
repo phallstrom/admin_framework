@@ -43,6 +43,11 @@ class AdminFormBuilder < ActionView::Helpers::FormBuilder
     wrapped_field(method, original_options, super)
   end
 
+  def time_select(method, options = {}, html_options = {})
+    original_options, options = prepare_options('time_select', options)
+    wrapped_field(method, original_options, super)
+  end
+
   def wrap_field(method, options = {})
     original_options, options = prepare_options('', options)
     wrapped_field(method, original_options, yield)
@@ -81,9 +86,11 @@ class AdminFormBuilder < ActionView::Helpers::FormBuilder
   end
 
   def wrapped_field(method, options, field)
+    return field if options[:field_only] == true
+
     %Q{
     <div class="field #{'required' if options[:required]}">
-      <label for="#{object_name}_#{method}">#{options.delete(:label) || method.to_s.humanize.titleize}</label>
+      #{label method, (options.delete(:label) || method.to_s.humanize.titleize)}
       <div style="display: inline-block">
         #{field}
         #{"<div class='help'>#{options[:help]}</div>" if options[:help]}
