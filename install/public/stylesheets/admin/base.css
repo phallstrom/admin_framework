@@ -40,6 +40,9 @@ ol li ol li {
 .faded {
   color: #666;
 }
+.tiny {
+  font-size: 85%;
+}
 .small {
   font-size: 90%;
 }
@@ -76,79 +79,13 @@ ol li ol li {
 /**********************************************************************/
 
 #page #content {
-  padding: 10px;
-  clear:both;
+  padding: 5px 10px 10px;
+  clear: both;
 }
 
 #page #content h2 {
   font-size: 1.3em;
   float: left;
-}
-
-#page #content #flashes div {
-  clear: both;
-  margin: 2px;
-  padding: 5px 1em 3px;
-  color: #000;
-}
-
-#page #content #flashes div.error {
-  background: #f30;
-  color: #fff;
-}
-
-#page #content #flashes div.warning {
-  background: #f90;
-}
-
-#page #content #flashes div.info,
-#page #content #flashes div.notice {
-  background: #3c6;
-}
-
-#page #content .actions {
-  float: right;
-  margin-bottom: 3px;
-}
-
-#page #content .actions form input.submit,
-#page #content .actions a {
-  display: block;
-  float: left;
-  background: #666;
-  color: #fff;
-  padding: 2px 3px;
-  margin-left: 3px;
-  border: 1px solid #333;
-  font-size: 11px;
-}
-
-#page #content .actions form input.submit {
-  display: inline-block;
-  padding: 0px 0px;
-  margin: 0px 6px 0 0;
-}
-
-#page #content .actions a:hover {
-  text-decoration: none;
-}
-
-#page #content .actions form input.submit:active,
-#page #content .actions a:active {
-  text-decoration: none;
-  background: #333;
-}
-
-#page #content .actions form input.submit,
-#page #content .actions form input.button {
-  float: none;
-}
-
-#page #content div.instructions {
-  font-size: 90%;
-  padding-bottom: 0.5em;
-  margin-bottom: 1em;
-  border-bottom: 1px solid #999;
 }
 
 #page #content hr {
@@ -157,6 +94,90 @@ ol li ol li {
   border-top: 1px solid #999;
 }
 
+/**********************************************************************/
+
+#page #flashes div {
+  clear: both;
+  margin: 0;
+  padding: 5px 1em 3px;
+  color: #000;
+}
+
+#page #flashes div.error {
+  background: #f30;
+  color: #fff;
+}
+
+#page #flashes div.warning {
+  background: #f90;
+}
+
+#page #flashes div.info,
+#page #flashes div.notice {
+  background: #3c6;
+}
+
+/**********************************************************************/
+
+#page #instructions {
+  font-size: 90%;
+  padding: 0 10px 5px;
+  margin: 5px 0;
+  border-bottom: 1px solid #999;
+  clear: both;
+}
+
+/**********************************************************************/
+
+#page #actions {
+  text-align: right;
+  padding: 0 10px;
+  margin: 5px 0 0;
+}
+
+#page #actions form {
+  display: inline-block;
+  margin: 0;
+  padding: 0;
+}
+
+#page #actions form input.submit,
+#page #actions a {
+  display: inline-block;
+  background: #666;
+  color: #fff;
+  padding: 2px 8px;
+  margin: 0 0 0 3px;
+  border: 1px solid #333;
+  font-size: 12px;
+  line-height: 15px;
+  vertical-align: top;
+  text-align: center;
+  font-family: Helvetica,Arial,sans-serif; /* for firefox */
+}
+
+#page #actions form select,
+#page #actions form input.text {
+  border: 1px solid #666;
+  background: #eee;
+  padding: 1px;
+  margin: 0 0 0 3px;
+  vertical-align: middle;
+}
+
+#page #actions a:hover {
+  text-decoration: none;
+}
+
+#page #actions a.selected {
+  background: #444;
+}
+
+#page #actions form input.submit:active,
+#page #actions a:active {
+  text-decoration: none;
+  background: #333;
+}
 
 /**********************************************************************/
 
@@ -246,7 +267,7 @@ table.data tr td.rowactions {
   margin: 5px;
   border: 1px solid #999;
   background: #ccc;
-  width: 150px;
+  width: 160px;
   color: #333;
   text-align: center;
 }
@@ -255,3 +276,6 @@ table.data tr td.rowactions {
   background: #aaa;
   text-decoration: none;
 }
+
+/**********************************************************************/
+

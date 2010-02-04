@@ -1,7 +1,8 @@
 <% @page_title = 'Admin Users' %>
-<div class='actions'>
+
+<% content_for :actions do %>
   <%= link_to 'New Admin User', new_admin_admin_user_path %>
-</div>
+<% end %>
 
 <table class='data'>
   <thead>

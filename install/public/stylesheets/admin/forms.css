@@ -1,12 +1,9 @@
-form {
-}
-
-form div.field {
+div#content form div.field {
   clear: both;
   padding-top: 10px;
 }
 
-form div.field label {
+div#content form div.field label {
   display: inline-block;
   white-space: nowrap;
   vertical-align: top;
@@ -14,61 +11,66 @@ form div.field label {
   border-bottom: 1px dashed #ddd;
 }
 
-form div.field div.help{
+div#content form div.field div.help{
   padding-top: 2px;
   font-size: 0.8em;
   color: #666;
 }
 
-form div.field.required label:after {
+div#content form div.field.required label:after {
   content: "*";
 }
 
-form div.field label.plain {
+div#content form div.field label.plain {
   display: inline;
   width: auto;
   border-bottom: none;
   vertical-align: baseline;
 }
 
-form div.field label.plain:after {
+div#content form div.field label.plain:after {
   content: '';
 }
 
-form div.field div.fieldWithErrors {
+div#content form div.field div.fieldWithErrors {
+  vertical-align: top;
   display: inline-block;
   padding-bottom: 2px;
 }
 
-form div.field div.error {
+div#content form div.field div.error {
   color: #f30;
   font-size: 0.9em;
 }
 
-form.jeditable input[type='text'],
-form.jeditable textarea,
-form div.field input.file,
-form div.field input.text,
-form div.field select,
-form div.field textarea {
+div#content form.jeditable input[type='text'],
+div#content form.jeditable textarea,
+div#content form div.field input.file,
+div#content form div.field input.text,
+div#content form div.field select,
+div#content form div.field textarea {
   display: inline-block;
   border: 1px solid #666;
   background: #eee;
 }
 
-form div.field table,
-form div.field input.text,
-form div.field textarea {
+div#content form div.field table,
+div#content form div.field input.text,
+div#content form div.field textarea {
   width: 600px;
 }
 
-form div.field input.text.short {
+div#content form div.field input.text.short {
   width: 100px;
+}
+
+div#content form div.field input.text.medium {
+  width: 200px;
 }
 
 /********************************************************************************/
  
-form div.field textarea.markitup {
+div#content form div.field textarea.markitup {
   width: 100%;
   height: 600px;
 }
@@ -97,19 +99,20 @@ div.markItUpContainer div.markItUpHeader ul li.markItUpButton12 {
 
 /********************************************************************************/
 
-form.jeditable input[type='text'],
-form.jeditable textarea {
+div#content form.jeditable input[type='text'],
+div#content form.jeditable textarea {
   background: #c2defb;
 }
 
-form div.form_buttons {
+div#content form div.form_buttons {
   clear: both;
   float: right;
+  margin-bottom: 1em;
 }
 
-form div.form_buttons input.cancel,
-form input.submit,
-form div.form_buttons input.submit {
+div#content form div.form_buttons input.cancel,
+div#content form input.submit,
+div#content form div.form_buttons input.submit {
   display: inline-block;
   float: left;
   background: #999;
@@ -120,34 +123,71 @@ form div.form_buttons input.submit {
   font-size: 11px;
 }
 
-form input.submit,
-form div.form_buttons input.submit {
+div#content form input.submit,
+div#content form div.form_buttons input.submit {
   background: #666;
 }
 
-form div.form_buttons input.cancel:hover,
-form input.submit,
-form div.form_buttons input.submit:hover {
+div#content form div.form_buttons input.cancel:hover,
+div#content form input.submit,
+div#content form div.form_buttons input.submit:hover {
   text-decoration: none;
 }
 
-form div.form_buttons input.cancel:active,
-form input.submit,
-form div.form_buttons input.submit:active {
+div#content form div.form_buttons input.cancel:active,
+div#content form input.submit,
+div#content form div.form_buttons input.submit:active {
   text-decoration: none;
   background: #333;
 }
 
-form fieldset {
-  border: 1px solid #999;
+div#content form fieldset {
+  border: 1px solid #bbb;
   padding: 0 0 10px 10px;
-  margin: 0 0 1em 0;
+  margin: 1em 0;
+  clear: both;
 }
 
-form fieldset legend {
+div#content form fieldset legend {
   font-weight: bold;
 }
 
-form fieldset label {
+div#content form fieldset.collapsable legend {
+  cursor: pointer;
+}
+
+div#content form fieldset label {
   font-size: 90%;
 }
+
+div#content form fieldset span.instructions {
+  color: #666;
+  font-size: 90%;
+}
+
+div#content form fieldset div.fieldset_contents {
+  margin: 5px 10px 0 0;
+}
+
+/********************************************************************************/
+
+div#content form fieldset fieldset {
+  background-color: #f9f9f9;
+}
+
+div#content form fieldset fieldset legend {
+  font-weight: normal;
+  font-size: 90%;
+}
+
+div#content form fieldset fieldset label {
+  font-size: 85%;
+}
+
+/********************************************************************************/
+
+div#content form span.cke_skin_kama {
+  border: none;
+  padding: 0;
+}
+

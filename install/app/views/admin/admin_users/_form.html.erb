@@ -1,7 +1,8 @@
 <% form_for([:admin, @admin_user], :builder => AdminFormBuilder) do |f| %>
 
-  <%= f.form_buttons { 
+  <%= form_buttons = f.form_buttons { 
       f.submit(submit) +
+      f.submit("#{submit} & continue") +
       f.cancel(:onclick => "document.location = '#{admin_admin_users_path}'")
   } %>
 
@@ -22,16 +23,12 @@
   <%= f.wrap_field(:permissions) { 
     AdminUser::PERMISSIONS.to_a.sort {|a,b| a.last <=> b.last}.map do |p|
         check_box_tag("admin_user[permissions][#{p.first}]", true, (@admin_user.permissions[p.first] rescue false)) +
-        label_tag("admin_user[permissions][#{p.first}]", p.last, :class => 'plain') +
+        label_tag("admin_user[permissions][#{p.first}]", p.last, :class => 'plain tiny faded') +
         "<br/>"
      end
   } %>
 
-
-  <%= f.form_buttons { 
-      f.submit(submit) +
-      f.cancel(:onclick => "document.location = '#{admin_admin_users_path}'")
-  } %>
+  <%= form_buttons %>
 
 <% end %>
 
