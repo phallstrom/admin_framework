@@ -25,6 +25,7 @@ class Admin::DashboardController < AdminController
   end
 
   def logout
+    @the_admin_user = nil
     session[:admin_user_id] = nil
     session[:admin_user_token] = nil
   end
