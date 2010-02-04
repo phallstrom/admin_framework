@@ -23,17 +23,18 @@ class AdminUser < ActiveRecord::Base
     :admin_users => 'Admin Users',
   } unless const_defined? "PERMISSIONS"
 
-  #
-  #
-  #
-  def before_save
+  before_save :tweak_fields
+
+  def tweak_fields
     unless password.blank? then
       self.password_hash = self.class.hash_a_password(password)
     end
 
     self.email = self.email.strip.downcase unless self.email.blank?
   end
+  private :tweak_fields
   
+
   #
   # Hash a string into a valid password hash
   #
