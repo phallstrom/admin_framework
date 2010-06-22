@@ -24,8 +24,8 @@
     AdminUser::PERMISSIONS.to_a.sort {|a,b| a.last <=> b.last}.map do |p|
         check_box_tag("admin_user[permissions][#{p.first}]", true, (@admin_user.permissions[p.first] rescue false)) +
         label_tag("admin_user[permissions][#{p.first}]", p.last, :class => 'plain tiny faded') +
-        "<br/>"
-     end
+        "<br/>".html_safe
+     end.join
   } %>
 
   <%= form_buttons %>

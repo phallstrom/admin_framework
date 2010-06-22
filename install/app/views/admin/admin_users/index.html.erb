@@ -23,10 +23,10 @@
         <td><%=h admin_user.email %></td>
         <td class='center'><%= admin_user.is_superuser? ? 'Yes' : 'No' %></td>
         <td class='center'><%= admin_user.is_enabled? ? 'Yes' : 'No' %></td>
-        <td class='right'>
+        <td class='right' nowrap>
           <%= link_to 'Edit', edit_admin_admin_user_path(admin_user) %>
           |
-          <%= link_to 'Destroy', admin_admin_user_path(admin_user), :confirm => 'Are you sure?', :method => :delete %>
+          <%= link_to 'Destroy', admin_admin_user_path(admin_user), :confirm => "Are you sure you want to destroy '#{admin_user.login}'?", :method => :delete %>
         </td>
       </tr>
     <% end %>

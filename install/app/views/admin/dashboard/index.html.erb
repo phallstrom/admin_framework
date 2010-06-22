@@ -2,7 +2,7 @@
 
 <div id='dashboardlinks'>
 
-  <%= clear(10) %>
+  <%= clear('1em') %>
 
   <%= link_to('Admin Users', admin_admin_users_path) if @the_admin_user.has_access_to?(:admin_users)  %>
   <%= link_to 'Change Password', admin_change_password_path %>

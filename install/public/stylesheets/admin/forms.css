@@ -11,7 +11,7 @@ div#content form div.field label {
   border-bottom: 1px dashed #ddd;
 }
 
-div#content form div.field div.help{
+div#content form div.field div.help {
   padding-top: 2px;
   font-size: 0.8em;
   color: #666;
@@ -46,6 +46,7 @@ div#content form div.field div.error {
 div#content form.jeditable input[type='text'],
 div#content form.jeditable textarea,
 div#content form div.field input.file,
+div#content form table.data input.text,
 div#content form div.field input.text,
 div#content form div.field select,
 div#content form div.field textarea {
@@ -66,6 +67,10 @@ div#content form div.field input.text.short {
 
 div#content form div.field input.text.medium {
   width: 200px;
+}
+
+div#content form input.text.half {
+  width: 300px;
 }
 
 /********************************************************************************/
@@ -110,6 +115,11 @@ div#content form div.form_buttons {
   margin-bottom: 1em;
 }
 
+div#content form fieldset div.form_buttons {
+  margin-bottom: 0;
+}
+
+
 div#content form div.form_buttons input.cancel,
 div#content form input.submit,
 div#content form div.form_buttons input.submit {
@@ -152,7 +162,7 @@ div#content form fieldset legend {
   font-weight: bold;
 }
 
-div#content form fieldset.collapsable legend {
+div#content form fieldset.collapsable > legend {
   cursor: pointer;
 }
 
@@ -160,6 +170,11 @@ div#content form fieldset label {
   font-size: 90%;
 }
 
+div#content form fieldset label.tiny {
+  font-size: 85%;
+}
+
+div#content form fieldset span.expand,
 div#content form fieldset span.instructions {
   color: #666;
   font-size: 90%;
@@ -191,3 +206,8 @@ div#content form span.cke_skin_kama {
   padding: 0;
 }
 
+/********************************************************************************/
+
+div#content form .cke_contents {
+  height: 500px !important;
+}

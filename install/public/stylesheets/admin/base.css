@@ -40,6 +40,9 @@ ol li ol li {
 .faded {
   color: #666;
 }
+.really_faded {
+  color: #999;
+}
 .tiny {
   font-size: 85%;
 }
@@ -49,6 +52,7 @@ ol li ol li {
 .large {
   font-size: 110%;
 }
+
 
 /**********************************************************************/
 
@@ -107,14 +111,23 @@ ol li ol li {
   background: #f30;
   color: #fff;
 }
+#page .error {
+  color: #f30;
+}
 
 #page #flashes div.warning {
   background: #f90;
+}
+#page .warning {
+  color: #f90;
 }
 
 #page #flashes div.info,
 #page #flashes div.notice {
   background: #3c6;
+}
+#page .info, #page.notice {
+  color: #3c6;
 }
 
 /**********************************************************************/

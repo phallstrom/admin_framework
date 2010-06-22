@@ -39,6 +39,7 @@ class Admin::AdminUsersController < AdminController
         redirect_to admin_admin_users_path
       end
     else
+      flash[:error] = "Please fix the errors below and try again."
       render :action => "new"
     end
   end
@@ -58,6 +59,7 @@ class Admin::AdminUsersController < AdminController
         redirect_to admin_admin_users_path
       end
     else
+      flash[:error] = "Please fix the errors below and try again."
       render :action => "edit"
     end
   end
