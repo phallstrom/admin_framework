@@ -37,6 +37,7 @@ Then install the following routes:
     r.admin '/admin'
     r.admin_login '/admin/login', :action => 'login'
     r.admin_logout '/admin/logout', :action => 'logout'
+    r.admin_change_password 'admin/change-password', :action => 'change_password'
   end
 
   map.namespace(:admin) do |admin|
