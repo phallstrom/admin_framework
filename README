@@ -10,9 +10,9 @@ Requirements
 
 The following plugins are required so go get them and install them:
 
-http://agilewebdevelopment.com/plugins/link_out_to
-http://agilewebdevelopment.com/plugins/clear_helper
-http://agilewebdevelopment.com/plugins/form_helper_css
+http://github.com/phallstrom/link_out_to
+http://github.com/phallstrom/clear_helper
+http://github.com/phallstrom/form_helper_css
 http://agilewebdevelopment.com/plugins/will_paginate
 
 Installation Steps
